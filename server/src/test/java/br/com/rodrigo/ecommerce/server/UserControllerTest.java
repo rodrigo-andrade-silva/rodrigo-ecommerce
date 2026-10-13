@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.util.List; // <-- Import adicionado na etapa 5.4
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -78,6 +78,37 @@ public class UserControllerTest {
         User userDB = users.getFirst();
 
         assertThat(user.getPassword()).isNotEqualTo(userDB.getPassword());
+    }
+
+    // 5.5 - Testes de validação dos dados do usuário
+    @Test
+    public void postUser_whenUserHasNullUsername_receiveBadRequest() {
+        User user = createValidUser();
+        user.setUsername(null);
+
+        ResponseEntity<Object> response = testRestTemplate.postForEntity(API_USER, user, Object.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
+    @Test
+    public void postUser_whenUserHasUsernameWithLessThanRequired_receiveBadRequest() {
+        User user = createValidUser();
+        user.setUsername("abc");
+
+        ResponseEntity<Object> response = testRestTemplate.postForEntity(API_USER, user, Object.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    }
+
+    @Test
+    public void postUser_whenPasswordHasNoUpperCase_receiveBadRequest() {
+        User user = createValidUser();
+        user.setPassword("p4ssword");
+
+        ResponseEntity<Object> response = testRestTemplate.postForEntity(API_USER, user, Object.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     }
 
     private User createValidUser() {
