@@ -1,5 +1,6 @@
 package br.com.rodrigo.ecommerce.server;
 
+import br.com.rodrigo.ecommerce.server.error.ApiError;
 import br.com.rodrigo.ecommerce.server.model.User;
 import br.com.rodrigo.ecommerce.server.repository.UserRepository;
 import br.com.rodrigo.ecommerce.server.shared.GenericResponse;
@@ -117,5 +118,26 @@ public class UserControllerTest {
                 .displayName("test-Display")
                 .password("P4ssword")
                 .build();
+    }
+
+
+    @Test
+    public void postUser_whenUserIsInvalid_receiveApiErrorWithValidationErrors() {
+        User user = createValidUser();
+        user.setUsername(null);
+
+        ResponseEntity<ApiError> response = testRestTemplate.postForEntity(API_USER, user, ApiError.class);
+
+        assertThat(response.getBody().getValidationErrors().get("username")).isNotNull();
+    }
+
+    @Test
+    public void postUser_whenUsernameAlreadyExists_receiveBadRequest() {
+        userRepository.save(createValidUser());
+        User user = createValidUser();
+
+        ResponseEntity<Object> response = testRestTemplate.postForEntity(API_USER, user, Object.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
     }
 }
