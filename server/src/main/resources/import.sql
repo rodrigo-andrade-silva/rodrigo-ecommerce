@@ -1,0 +1,18 @@
+insert into tb_category (name) values ('Tecnologia');
+insert into tb_category (name) values ('Ficção');
+insert into tb_category (name) values ('Negócios');
+insert into tb_category (name) values ('Infantojuvenil');
+
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('Clean Code','Guia clássico para escrever código limpo, legível e fácil de manter.',129.90,'https://covers.openlibrary.org/b/isbn/9780132350884-M.jpg','Robert C. Martin','Prentice Hall','9780132350884',1);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('The Pragmatic Programmer','Dicas práticas e atemporais para quem desenvolve software.',149.90,'https://covers.openlibrary.org/b/isbn/9780135957059-M.jpg','David Thomas e Andrew Hunt','Addison-Wesley','9780135957059',1);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('Design Patterns','Os 23 padrões de projeto clássicos da orientação a objetos.',169.90,'https://covers.openlibrary.org/b/isbn/9780201633610-M.jpg','Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides','Addison-Wesley','9780201633610',1);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('1984','Romance distópico sobre vigilância, controle e verdade.',54.90,'https://covers.openlibrary.org/b/isbn/9780451524935-M.jpg','George Orwell','Signet Classics','9780451524935',2);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('The Hobbit','A jornada de Bilbo Bolseiro até a Montanha Solitária.',69.90,'https://covers.openlibrary.org/b/isbn/9780547928227-M.jpg','J.R.R. Tolkien','Houghton Mifflin Harcourt','9780547928227',2);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('Pride and Prejudice','Clássico de Jane Austen sobre orgulho, preconceito e amor.',39.90,'https://covers.openlibrary.org/b/isbn/9780141439518-M.jpg','Jane Austen','Penguin Classics','9780141439518',2);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('The Lean Startup','Método para criar negócios inovadores com experimentos rápidos.',79.90,'https://covers.openlibrary.org/b/isbn/9780307887894-M.jpg','Eric Ries','Crown Business','9780307887894',3);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('Rich Dad Poor Dad','Lições sobre dinheiro e educação financeira.',59.90,'https://covers.openlibrary.org/b/isbn/9781612680194-M.jpg','Robert T. Kiyosaki','Plata Publishing','9781612680194',3);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('The Little Prince','A fábula poética do pequeno príncipe e suas viagens entre planetas.',44.90,'https://covers.openlibrary.org/b/isbn/9780156012195-M.jpg','Antoine de Saint-Exupéry','Harvest Books','9780156012195',4);
+insert into tb_product (name, description, price, image_url, author, publisher, isbn, category_id) values ('Harry Potter and the Sorcerer''s Stone','O menino bruxo descobre o mundo da magia em Hogwarts.',64.90,'https://covers.openlibrary.org/b/isbn/9780590353427-M.jpg','J.K. Rowling','Scholastic','9780590353427',4);
+
+INSERT INTO tb_user(display_name, username, password) VALUES ('Cliente Um', 'cliente1','$2a$10$44cE/LmsPZEZk3VbHN9gguvCKPvpRCEpIuMJrQRGYUm5u7FOzWAQK');
+INSERT INTO tb_user(display_name, username, password) VALUES ('Cliente Dois', 'cliente2','$2a$10$44cE/LmsPZEZk3VbHN9gguvCKPvpRCEpIuMJrQRGYUm5u7FOzWAQK');
